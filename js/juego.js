@@ -20,8 +20,8 @@ var Juego = {
   obstaculosCarretera: [
     /*Aca se van a agregar los obstaculos visibles. Tenemos una valla horizontal
     de ejemplo, pero podras agregar muchos mas. */
-    new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1)
-
+    new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1),
+    new Obstaculo('imagenes/valla_vertical.png', 370, 430, 30, 30, 1)
   ],
   /* Estos son los bordes con los que se puede chocar, por ejemplo, la vereda.
    Ya estan ubicados en sus lugares correspondientes. Ya aparecen en el mapa, ya
@@ -131,7 +131,11 @@ Juego.capturarMovimiento = function(tecla) {
     /* Aca tiene que estar la logica para mover al jugador invocando alguno
     de sus metodos  */
 
+    
     /* COMPLETAR */
+    //this.jugador.mover(movX, movY);
+    this.jugador.mover(movX,movY,tecla);
+    Dibujante.dibujarEntidad(this.jugador);
   }
 };
 
@@ -142,13 +146,8 @@ Juego.dibujar = function() {
   this.dibujarFondo();
 
 
-  /* Aca hay que agregar la logica para poder dibujar al jugador principal
-  utilizando al dibujante y los metodos que nos brinda.
-  "Dibujante dibuja al jugador" */
-  console.log("JD ya le voy a decir que dibuje");
-  Dibujante.dibujarEntidad(Jugador);
-
-  /* Completar */
+  // Se dibuja jugador
+  Dibujante.dibujarEntidad(this.jugador);
 
   // Se recorren los obstaculos de la carretera pintandolos
   this.obstaculosCarretera.forEach(function(obstaculo) {
