@@ -21,10 +21,27 @@ var Juego = {
     /*Aca se van a agregar los obstaculos visibles. Tenemos una valla horizontal
     de ejemplo, pero podras agregar muchos mas. */
     new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1),
-    new Obstaculo('imagenes/valla_vertical.png', 370, 430, 30, 30, 1)
+    new Obstaculo('imagenes/valla_horizontal.png', 100, 430, 30, 30, 1),
+    new Obstaculo('imagenes/valla_horizontal.png', 130, 280, 30, 30, 1),
+    new Obstaculo('imagenes/valla_horizontal.png', 160, 280, 30, 30, 1),
+    new Obstaculo('imagenes/valla_vertical.png', 370, 430, 30, 30, 1),
+    new Obstaculo('imagenes/valla_vertical.png', 370, 430, 30, 30, 1),
+    new Obstaculo('imagenes/valla_vertical.png', 435, 385, 30, 30, 1),
+    new Obstaculo('imagenes/valla_vertical.png', 435, 415, 30, 30, 1),
+    new Obstaculo('imagenes/valla_horizontal.png', 500, 320, 30, 30, 1),
+    new Obstaculo("imagenes/auto_verde_derecha.png", 470, 430, 30, 15, 2),
+    new Obstaculo("imagenes/auto_verde_derecha.png", 440, 80, 30, 15, 2),
+    new Obstaculo("imagenes/auto_verde_abajo.png", 180, 200, 15, 30, 2),
+    new Obstaculo("imagenes/auto_verde_abajo.png", 550, 210, 15, 30, 2),
+    new Obstaculo("imagenes/bache.png", 280, 230, 30, 30, 3),
+    new Obstaculo("imagenes/bache.png", 580, 120, 30, 30, 3),
+    new Obstaculo("imagenes/bache.png", 840, 380, 30, 30, 3),
+    new Obstaculo("imagenes/bache.png", 280, 480, 30, 30, 3),
+    new Obstaculo('imagenes/valla_horizontal.png', 760, 240, 30, 30, 1),
+    new Obstaculo('imagenes/valla_horizontal.png', 790, 240, 30, 30, 1)
   ],
   /* Estos son los bordes con los que se puede chocar, por ejemplo, la vereda.
-   Ya estan ubicados en sus lugares correspondientes. Ya aparecen en el mapa, ya
+   Ya estan ubicados en sus lugares correspondientes.4Ya aparecen en el mapa, ya
    que son invisibles. No tenes que preocuparte por ellos.*/
   bordes: [
     // // Bordes
@@ -128,14 +145,8 @@ Juego.capturarMovimiento = function(tecla) {
 
   // Si se puede mover hacia esa posicion hay que hacer efectivo este movimiento
   if (this.chequearColisiones(movX + this.jugador.x, movY + this.jugador.y)) {
-    /* Aca tiene que estar la logica para mover al jugador invocando alguno
-    de sus metodos  */
-
-    
-    /* COMPLETAR */
-    //this.jugador.mover(movX, movY);
+    //mueve el jugador
     this.jugador.mover(movX,movY,tecla);
-    Dibujante.dibujarEntidad(this.jugador);
   }
 };
 
@@ -202,7 +213,8 @@ Juego.chequearColisiones = function(x, y) {
   this.obstaculos().forEach(function(obstaculo) {
     if (this.intersecan(obstaculo, this.jugador, x, y)) {
 
-      /*COMPLETAR, obstaculo debe chocar al jugador*/
+      // obstaculo choca al jugador
+      obstaculo.chocar(this.jugador);
 
       puedeMoverse = false
     }
