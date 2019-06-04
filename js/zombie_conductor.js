@@ -11,11 +11,11 @@ var ZombieConductor = function(sprite, x, y, ancho, alto, velocidad, rangoMov, d
   this.direccion = direccion;
 }
 
-/* Completar creacion del ZombieConductor */
+/* Creacion del ZombieConductor */
 ZombieConductor.prototype = Object.create(Enemigo.prototype);
 ZombieConductor.prototype.constructor = ZombieConductor;
 
-/* Completar metodos para el movimiento y el ataque */
+/* Metodos para el movimiento y el ataque */
 ZombieConductor.prototype.mover = function() {
   //Primero se determina si el tren se debe mover vertica u horizontalmente
   if (this.direccion == "h") {
