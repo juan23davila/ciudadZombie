@@ -168,6 +168,8 @@ Juego.dibujar = function() {
   //Se pinta la imagen de fondo segun el estado del juego
   this.dibujarFondo();
 
+  //Dibuja línea de meta
+  this.dibujarMeta();
 
   // Se dibuja jugador
   Dibujante.dibujarEntidad(this.jugador);
@@ -267,6 +269,25 @@ Juego.dibujarFondo = function() {
     Dibujante.dibujarImagen('imagenes/mapa.png', 0, 5, this.anchoCanvas, this.altoCanvas);
   }
 };
+
+/**
+ * Dibuja línea de meta
+ * @author: Juan Davila
+ */
+Juego.dibujarMeta = function(){
+  for (let i = 1; i <= 2; i++) {
+    for (let j = 1; j <= 25; j++) {
+      //determina color y ubicación del rectangulo
+      if((j+i)%2 == 0){
+        //alert("blanco pos ("+(750 + (5*j))+","+(520 + (5*i))+")");
+        Dibujante.dibujarRectangulo("white", (755 + (5*j)), (490 + (5*i)), 5, 5);
+      }else{
+        //alert("negro pos ("+(750 + (5*j))+","+(520 + (5*i))+")");
+        Dibujante.dibujarRectangulo("black", (755 + (5*j)), (490 + (5*i)), 5, 5);
+      }
+    }
+  }
+}
 
 Juego.terminoJuego = function() {
   return this.jugador.vidas <= 0;
