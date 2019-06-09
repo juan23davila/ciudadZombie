@@ -3,10 +3,13 @@ modificarlo para hacer que se comporte de la forma que mas te guste.
 Este zombie recibe los mismos parametros que el objeto Enemigo. Podes consultar
 el archivo Enemigo.js para entender que es cada uno. */
 
-var ZombieCaminante = function(sprite, x, y, ancho, alto, velocidad, rangoMov) {
+var ZombieCaminante = function(sprite1, sprite2, x, y, ancho, alto, velocidad, rangoMov) {
+  this.sprite = sprite1;
+  this.sprite1 = sprite1;
+  this.sprite2 = sprite2;
   /* ZombieCaminante llama al constructor de Enemigo utilizando los parametros
   necesarios */
-  Enemigo.call(this, sprite, x, y, ancho, alto, velocidad, rangoMov);
+  Enemigo.call(this, sprite1, x, y, ancho, alto, velocidad, rangoMov);
 }
 /* Completamos la creacion del objeto asignando su prototipo y la funcion
 constructor para poder usarla con 'new' al crear nuevos Zombies Caminantes */
@@ -29,8 +32,12 @@ ZombieCaminante.prototype.mover = function() {
   /* En esta parte lo que hacemos es invertir la direccion horizontal si
   toca uno de sus limites, modificando su velocidad. Si multiplicamos por -1 la
   velocidad lo que estamos haciendo es invertir su direccion.*/
-  if ((this.x < this.rangoMov.desdeX) || (this.x > this.rangoMov.hastaX)){
+  if (this.x < this.rangoMov.desdeX){
     this.velocidad *= -1;
+    this.sprite = this.sprite2;
+  }else if(this.x > this.rangoMov.hastaX){
+    this.velocidad *= -1;
+    this.sprite = this.sprite1;
   }
   // Si sobrepasa el rangoY, lo manda al centro entre ambos rangos
   if ((this.y < this.rangoMov.desdeY) || (this.y > this.rangoMov.hastaY)) {

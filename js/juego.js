@@ -62,11 +62,11 @@ var Juego = {
   // Los enemigos se agregaran en este arreglo.
   enemigos: [
     //new ZombieCaminante(sprite, x, y, ancho, alto, velocidad, rangoMov)
-    new ZombieCaminante("imagenes/zombie1.png", 950, 130, 10, 10, 0.7, {desdeX: 5, hastaX: 950, desdeY: 10, hastaY: 150}),
-    new ZombieCaminante("imagenes/zombie2.png", 100, 210, 10, 10, 0.5, {desdeX: 5, hastaX: 950, desdeY: 150, hastaY: 250}),
-    new ZombieCaminante("imagenes/zombie3.png", 5, 300, 10, 10, 0.8, {desdeX: 5, hastaX: 950, desdeY: 230, hastaY: 330}),
-    new ZombieCaminante("imagenes/zombie4.png", 250, 450, 10, 10, 1, {desdeX: 5, hastaX: 950, desdeY: 400, hastaY: 480}),
-    new ZombieCaminante("imagenes/zombie1.png", 80, 500, 10, 10, 0.7, {desdeX: 5, hastaX: 950, desdeY: 410, hastaY: 550}),
+    new ZombieCaminante("imagenes/zombie1.png", "imagenes/zombie1R.png", 950, 130, 10, 10, 0.7, {desdeX: 5, hastaX: 950, desdeY: 10, hastaY: 150}),
+    new ZombieCaminante("imagenes/zombie2.png", "imagenes/zombie2R.png", 100, 210, 10, 10, 0.5, {desdeX: 5, hastaX: 950, desdeY: 150, hastaY: 250}),
+    new ZombieCaminante("imagenes/zombie3.png", "imagenes/zombie3R.png", 5, 300, 10, 10, 0.8, {desdeX: 5, hastaX: 950, desdeY: 230, hastaY: 330}),
+    new ZombieCaminante("imagenes/zombie4.png", "imagenes/zombie4R.png", 250, 450, 10, 10, 1, {desdeX: 5, hastaX: 950, desdeY: 400, hastaY: 480}),
+    new ZombieCaminante("imagenes/zombie1.png", "imagenes/zombie1R.png", 80, 500, 10, 10, 0.7, {desdeX: 5, hastaX: 950, desdeY: 410, hastaY: 550}),
     new ZombieConductor("imagenes/tren_horizontal.png", 5, 325, 90, 30, 2, {desdeX: 5, hastaX: 850}, "h"),
     new ZombieConductor("imagenes/tren_vertical.png", 644, 20, 30, 90, 1, {desdeY: 20, hastaY: 470}, "v"),
     new ZombieConductor("imagenes/tren_vertical.png", 675, 470, 30, 90, 1, {desdeY: 20, hastaY: 470}, "v")
@@ -89,9 +89,13 @@ Juego.iniciarRecursos = function() {
     'imagenes/valla_horizontal.png',
     'imagenes/valla_vertical.png',
     'imagenes/zombie1.png',
+    'imagenes/zombie1R.png',
     'imagenes/zombie2.png',
+    'imagenes/zombie2R.png',
     'imagenes/zombie3.png',
+    'imagenes/zombie3R.png',
     'imagenes/zombie4.png',
+    'imagenes/zombie4R.png',
     'imagenes/auto_rojo_abajo.png',
     'imagenes/auto_rojo_arriba.png',
     'imagenes/auto_rojo_derecha.png',

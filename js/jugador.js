@@ -47,14 +47,4 @@ var Jugador = {
   perderVidas: function(cantVidas){
     this.vidas -= cantVidas;
   },
-
-  // Valida si tienes más vida
-  perder: function(){
-    if(this.vidas<=0){
-      console.log("perdió");
-    }else{
-      console.log("Sigue vivo");
-    }
-  }
-
 }
